@@ -2,11 +2,31 @@
 
 RAG-система информационной поддержки пользователя КОМПАС-3D v24 по официальной HTML-документации.
 
+## Оглавление
+
+- [Установка](#установка)
+- [Основные переменные](#основные-переменные)
+- [Подготовка корпуса](#подготовка-корпуса)
+- [Индексация](#индексация)
+- [Запуск RAG](#запуск-rag)
+- [Docker](#docker)
+- [Оценка](#оценка)
+- [Retrieval Ablation](#retrieval-ablation)
+- [Результаты исследований](#результаты-исследований)
+- [Структура](#структура)
+- [Проверка синтаксиса](#проверка-синтаксиса)
+- [CI/CD](#cicd)
+
 Проект разделен на три зоны:
 
 - `src/corpus` - подготовка корпуса из HTML-документации, очистка и chunking.
 - `src/rag` - runtime RAG: embeddings, vectorstore, BM25, hybrid retrieval, rerank, LLM generation, ссылки.
 - `experiments/retrieval_ablation` - экспериментальные retrieval ablation и расчет IR-метрик.
+
+В ходе разработки были проведены сравнения BM25, vector-only и hybrid search с
+query rewriting и rerank для выбора стратегии поиска в инженерном домене.
+Описание экспериментов и сохраненные метрики находятся в
+[`experiments/retrieval_ablation/README.md`](experiments/retrieval_ablation/README.md).
 
 ## Установка
 
@@ -202,6 +222,26 @@ Giga-Embeddings index:
   --results experiments\retrieval_ablation\results\hybrid_search_metrics.json `
             experiments\retrieval_ablation\results\vector_search_metrics.json
 ```
+
+## Результаты исследований
+
+В ходе разработки сравнивались поисковые компоненты RAG-системы: BM25,
+vector-only поиск по разным embedding-моделям, hybrid search, query rewriting и
+rerank. Целью было выбрать устойчивую стратегию поиска для инженерной
+документации, где важны точные термины, команды CAD-системы и контекст раздела.
+
+![Результаты retrieval ablation](docs/images/retrieval-ablation-results.png)
+
+Рисунок показывает результаты retrieval ablation: сравнение конфигураций поиска
+по метрикам `P@3`, `P@5`, `NDCG@5` и `MRR`. По этим замерам выбран hybrid-подход
+с BM25, векторным поиском, RRF, query rewriting и rerank.
+
+![Анализ релевантности поиска и качества генерации](docs/images/relevance-generation-evaluation.png)
+
+Рисунок отражает анализ релевантности найденных фрагментов и качества генерации
+на наборе из 100 пользовательских запросов с форума АСКОН. Такая проверка
+использовалась как прикладная оценка качества ответов за пределами чистых
+retrieval-метрик.
 
 ## Структура
 

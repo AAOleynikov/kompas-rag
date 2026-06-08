@@ -1,25 +1,25 @@
 # Retrieval Ablation Experiments
 
-This directory contains retrieval evaluation scripts and saved research metrics
-for comparing search strategies.
+В этом каталоге находятся скрипты retrieval-оценки и сохраненные research-метрики
+для сравнения стратегий поиска по инженерной документации КОМПАС-3D.
 
-## Layout
+## Структура
 
-- `scripts/` - executable experiment and reporting scripts.
-- `results/` - saved JSON metrics from research runs.
+- `scripts/` - исполняемые скрипты экспериментов и отчетов.
+- `results/` - сохраненные JSON-метрики research-запусков.
 
-## Scripts
+## Скрипты
 
-- `scripts/run_e5_ablation.py` - main 12-mode retrieval ablation for the current E5 index.
-- `scripts/run_giga_ablation.py` - Giga-Embeddings variant of the ablation.
-- `scripts/summarize_metrics.py` - retrieval metrics over annotation files and compact summaries for saved result JSON files.
+- `scripts/run_e5_ablation.py` - основной ablation-эксперимент для текущего E5-индекса.
+- `scripts/run_giga_ablation.py` - вариант ablation-эксперимента для Giga-Embeddings.
+- `scripts/summarize_metrics.py` - расчет retrieval-метрик по аннотациям и компактные сводки по сохраненным JSON-результатам.
 
-## Saved Metrics
+## Сохраненные метрики
 
-- `results/hybrid_search_metrics.json` - BM25 and hybrid search measurements.
-- `results/vector_search_metrics.json` - vector-only measurements across embedding models.
+- `results/hybrid_search_metrics.json` - замеры BM25 и hybrid search.
+- `results/vector_search_metrics.json` - замеры vector-only поиска по разным embedding-моделям.
 
-Print saved research metrics:
+Печать сохраненных research-метрик:
 
 ```bash
 python experiments/retrieval_ablation/scripts/summarize_metrics.py \
