@@ -1,0 +1,39 @@
+# Python/runtime
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# OS/editor noise
+.DS_Store
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Corpus/data artifacts. Keep directory skeleton only.
+data/raw/*
+data/processed/*
+data/indexes/*
+data/eval/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/indexes/.gitkeep
+!data/eval/.gitkeep
+
+# Existing generated artifacts and indexes
+chroma_db/
+archive/generated_indexes/
+neraspred/chroma_*/
+*.sqlite3
+*.bin
+*.pkl
+*.pickle
+
+# Derived extraction outputs
+extracted_topicbox/
+
+# Large reports/results are kept locally unless explicitly curated.
+neraspred/tag_extraction_report/

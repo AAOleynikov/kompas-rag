@@ -1,0 +1,29 @@
+services:
+  gradio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kompas-rag:local
+    env_file:
+      - .env
+    environment:
+      KOMPAS_RAG_PERSIST_DIR: /app/data/indexes/chroma_db
+      KOMPAS_RAG_EMBEDDING_DEVICE: ${KOMPAS_RAG_EMBEDDING_DEVICE:-cpu}
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./data:/app/data:ro
+      - ./configs:/app/configs:ro
+    command:
+      - python
+      - -m
+      - rag.web_ui
+      - --config
+      - configs/rag.yaml
+      - --persist-dir
+      - /app/data/indexes/chroma_db
+      - --host
+      - 0.0.0.0
+      - --port
+      - "7860"
+    restart: unless-stopped

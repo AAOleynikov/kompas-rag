@@ -1,0 +1,78 @@
+{
+  "description": "Retrieval research metrics for BM25 and hybrid search configurations.",
+  "context": "Measurements collected during research for selecting the search strategy.",
+  "metrics": {
+    "1. BM25 only": {
+      "P@3": 0.3563218390804598,
+      "P@5": 0.3241379310344826,
+      "NDCG@5": 0.9114766450368963,
+      "MRR": 0.5816091954022988
+    },
+    "2. BM25 + rewrite": {
+      "P@3": 0.4137931034482759,
+      "P@5": 0.3793103448275862,
+      "NDCG@5": 0.9232328227348994,
+      "MRR": 0.5925287356321839
+    },
+    "3. BM25 + reranker": {
+      "P@3": 0.5057471264367817,
+      "P@5": 0.4344827586206896,
+      "NDCG@5": 0.9385313897547809,
+      "MRR": 0.7040229885057471
+    },
+    "4. BM25 + rewrite + reranker": {
+      "P@3": 0.5287356321839081,
+      "P@5": 0.4804597701149425,
+      "NDCG@5": 0.9516668490184825,
+      "MRR": 0.7114942528735632
+    },
+    "Hybrid BM25 + Giga-Embeddings-instruct base": {
+      "P@3": 0.4942528735632184,
+      "P@5": 0.4482758620689655,
+      "NDCG@5": 0.9135866263990476,
+      "MRR": 0.6402298850574712
+    },
+    "Hybrid BM25 + Giga-Embeddings-instruct +rewrite": {
+      "P@3": 0.367816091954023,
+      "P@5": 0.3793103448275862,
+      "NDCG@5": 0.9329090565364548,
+      "MRR": 0.5528735632183908
+    },
+    "Hybrid BM25 + Giga-Embeddings-instruct +reranker": {
+      "P@3": 0.5632183908045977,
+      "P@5": 0.5103448275862069,
+      "NDCG@5": 0.9425825769305464,
+      "MRR": 0.7557471264367817
+    },
+    "Hybrid BM25 + Giga-Embeddings-instruct +rewrite+rerank": {
+      "P@3": 0.6112345678901234,
+      "P@5": 0.5172413793103449,
+      "NDCG@5": 0.9516668490184825,
+      "MRR": 0.7511494252873563
+    },
+    "Hybrid BM25 + multilingual-e5-large-instruct base": {
+      "P@3": 0.5812345678901234,
+      "P@5": 0.5103448275862069,
+      "NDCG@5": 0.9378011534008917,
+      "MRR": 0.735632183908046
+    },
+    "Hybrid BM25 + multilingual-e5-large-instruct +rewrite": {
+      "P@3": 0.5812345678901234,
+      "P@5": 0.5586206896551724,
+      "NDCG@5": 0.9425825769305464,
+      "MRR": 0.7758620689655172
+    },
+    "Hybrid BM25 + multilingual-e5-large-instruct +reranker": {
+      "P@3": 0.6436781609195402,
+      "P@5": 0.5586206896551724,
+      "NDCG@5": 0.9616668490184825,
+      "MRR": 0.8114942528735632
+    },
+    "Hybrid BM25 + multilingual-e5-large-instruct +rewrite+rerank": {
+      "P@3": 0.7126436781609196,
+      "P@5": 0.5793103448275863,
+      "NDCG@5": 0.9616668490184825,
+      "MRR": 0.8505747126436782
+    }
+  }
+}
