@@ -96,7 +96,6 @@ def main():
 
     # ── Загрузка Giga-Embeddings + Chroma ──
     logger.info("Загрузка Giga-Embeddings...")
-    import torch
     from langchain_huggingface import HuggingFaceEmbeddings
     from langchain_chroma import Chroma
     from rag.vectorstore import get_vectorstore_count

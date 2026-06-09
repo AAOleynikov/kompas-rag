@@ -79,41 +79,6 @@ def judge_single(judge, question, doc_content, source_file):
             time.sleep(5 * (attempt + 1))
     return {"label": "irrelevant", "reason": "retries exhausted"}
 
-
-# ── Retrieval ─────────────────────────────────────────────────────────
-
-def dedup_by_file(docs, top_k=5):
-    from rag.retrieval.ablation import dedup_by_file as _dedup_by_file
-
-    return _dedup_by_file(docs, top_k)
-
-
-def multi_query_retrieve(retrieve_fn, queries, top_k_final=5):
-    from rag.retrieval.ablation import multi_query_retrieve as _multi_query_retrieve
-
-    return _multi_query_retrieve(retrieve_fn, queries, top_k_final)
-
-
-# ── Метрики ───────────────────────────────────────────────────────────
-
-def dcg(rels, k):
-    from rag.evaluation.retrieval import dcg_at_k
-
-    return dcg_at_k(rels, k)
-
-
-def ndcg(rels, k):
-    from rag.evaluation.retrieval import ndcg_at_k
-
-    return ndcg_at_k(rels, k)
-
-
-def compute_metrics(labels_list):
-    from rag.evaluation.retrieval import compute_ablation_metrics
-
-    return compute_ablation_metrics(labels_list)
-
-
 # ── Main ──────────────────────────────────────────────────────────────
 
 def main():

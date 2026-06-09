@@ -13,7 +13,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 
 from ..chain import KompasRAGChain, postprocess_references, preprocess_context
-from ..config import RAGConfig, load_config
+from ..config import load_config
 from ..pipeline import build_rag_pipeline
 
 logger = logging.getLogger(__name__)

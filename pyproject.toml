@@ -16,11 +16,9 @@ dependencies = [
     "langchain-core>=0.3,<1",
     "langchain-huggingface>=0.1,<1",
     "langchain-openai>=0.2,<1",
-    "lxml>=5,<7",
     "pyyaml>=6,<7",
     "python-dotenv>=1,<2",
     "rank-bm25>=0.2,<1",
-    "requests>=2.32,<3",
     "sentence-transformers>=3,<6",
     "torch>=2.3",
     "transformers>=4.40,<6"
@@ -30,10 +28,6 @@ dependencies = [
 qdrant = [
     "langchain-qdrant>=0.1,<1",
     "qdrant-client>=1.10,<2"
-]
-eval = [
-    "pandas>=2,<3",
-    "scikit-learn>=1.4,<2"
 ]
 
 [tool.poetry]

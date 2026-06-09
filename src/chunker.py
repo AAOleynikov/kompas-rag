@@ -17,7 +17,6 @@ from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Optional
 from enum import Enum, auto
-import hashlib
 from bs4 import BeautifulSoup, Tag, NavigableString, Comment
 
 import logging
@@ -58,9 +57,6 @@ class BlockType(Enum):
 
     # --- Прочее ---
     UNKNOWN = auto()
-
-
-import re
 
 def _postprocess_markdown(md_text: str) -> str:
     """Финальная очистка markdown текста чанка."""

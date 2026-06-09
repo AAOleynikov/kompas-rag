@@ -11,16 +11,11 @@
 """
 import re
 import json
-from pathlib import Path
-import os
-import re
-import json
 import argparse
 import logging
 from pathlib import Path
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Optional
-from collections import OrderedDict
 
 from bs4 import BeautifulSoup, Tag, NavigableString, Comment
 
